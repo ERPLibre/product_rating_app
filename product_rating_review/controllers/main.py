@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-from odoo import http
-from odoo.http import request
-from odoo.addons.website_mail.controllers.main import WebsiteMail
+from openerp.addons.web import http
+from openerp.addons.web.http import request
+from openerp.addons.website_mail.controllers.main import WebsiteMail
 
 
 class WebsiteMail(WebsiteMail):

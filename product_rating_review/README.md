@@ -2,12 +2,12 @@ Manage Ratings & Reviews of products at Backend
 -----------------------------------------------
 
 Version
-----------
-	Odoo v10
+---------
+	Odoo v9
 
 Module Configration Guideline
 -----------------------------
-	-> Go to Website Shop,select product to buy.Then enable ratings from Customize->Discussion and Rating.
+	-> Go to Website Shop,select any product to buy.Then enable ratings from Customize->Discussion and Rating.
 	-> Ensure that email address of user is correct with proper server domain.
 
 Functionalities
