@@ -18,7 +18,8 @@ This specific module allows you manage ratings and reviews of website products a
         'security/ir.model.access.csv',
         'views/product_view.xml',
     ],
-    'demo': [],
+
+    'images': ['static/description/banner.png'],
     'installable': True,
     'auto_install': False,
 }
