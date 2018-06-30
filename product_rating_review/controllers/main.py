@@ -7,7 +7,8 @@ from odoo.addons.website_mail.controllers.main import WebsiteMail
 
 class WebsiteMail(WebsiteMail):
 
-    @http.route(['/website_mail/post/json'], type='json', auth='public', website=True)
+    @http.route(['/website_mail/post/json'], type='json', auth='public',
+                website=True)
     def chatter_json(self, res_model='', res_id=None, message='', **kw):
         """get reviews from website products"""
         params = kw.copy()
