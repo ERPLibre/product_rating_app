@@ -15,7 +15,8 @@ class ProductTemplate(models.Model):
     @api.multi
     def action_view_reviews(self):
         self.ensure_one()
-        action = self.env.ref('product_rating_review.action_product_reviewer_list')
+        action = self.env.ref(
+            'product_rating_review.action_product_reviewer_list')
 
         return {
             'name': action.name,
@@ -38,7 +39,8 @@ class CustomerReview(models.Model):
     _name = "customer.review"
 
     product_id = fields.Many2one('product.template', required=True)
-    customer_id = fields.Many2one('res.users', string='Review By', required=True)
+    customer_id = fields.Many2one(
+        'res.users', string='Review By', required=True)
     name = fields.Text(string='Comment', required=True)
     rating = fields.Integer(string='Rating')
     date = fields.Datetime(string='Created On')
