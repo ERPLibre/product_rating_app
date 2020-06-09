@@ -1,28 +1,29 @@
 # -*- coding: utf-8 -*-
 
-from openerp.addons.web import http
-from openerp.addons.web.http import request
-from openerp.addons.website_mail.controllers.main import WebsiteMail
+from odoo import http
+from odoo.http import request
+from odoo.addons.portal.controllers.mail import PortalChatter
+from datetime import date
 
 
-class WebsiteMail(WebsiteMail):
+class PortalChatter(PortalChatter):
 
-    @http.route(['/website_mail/post/json'], type='json', auth='public', website=True)
-    def chatter_json(self, res_model='', res_id=None, message='', **kw):
+    @http.route(['/mail/chatter_post'], type='http', methods=['POST'], auth='public', website=True)
+    def portal_chatter_post(self, res_model, res_id, message, **kw):
         """get reviews from website products"""
         params = kw.copy()
-        msg_data = super(WebsiteMail, self).chatter_json(
+        uid = request.session.uid
+        user = request.env['res.users'].browse(uid)
+        msg_data = super(PortalChatter, self).portal_chatter_post(
             res_model=res_model, res_id=res_id, message=message, **params)
-        res_user = request.env['res.users'].search(
-            [('name', '=', msg_data.get('author'))])
         product = request.env['product.template'].browse(res_id)
-        rating = float(kw.get('rating')) if kw.get('rating') else 0
+        rating = float(kw.get('rating_value')) if kw.get('rating_value') else 0
         # store data from website at product backend
         request.env['customer.review'].sudo().create({
-            'customer_id': res_user.id,
+            'customer_id': uid,
             'name': message,
-            'date': msg_data.get('date'),
-            'email': res_user.partner_id.email,
+            'date': date.today(),
+            'email': user.email,
             'product_id': product.id,
             'rating': rating,
         })

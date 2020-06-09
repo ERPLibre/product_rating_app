@@ -2,7 +2,7 @@
 
 {
     'name': 'Product Rating',
-    'version': '0.1',
+    'version': '11.0.1.0.0',
     'summary': 'Product Rating & Review at Backend',
     'description': """
 Features

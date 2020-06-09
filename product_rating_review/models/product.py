@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from openerp import api, fields, models
+from odoo import api, fields, models
 
 
 class ProductTemplate(models.Model):
@@ -41,5 +41,5 @@ class CustomerReview(models.Model):
     customer_id = fields.Many2one('res.users', string='Review By', required=True)
     name = fields.Text(string='Comment', required=True)
     rating = fields.Integer(string='Rating')
-    date = fields.Datetime(string='Created On')
+    date = fields.Date(string='Created On')
     email = fields.Char(string='Email', required=True)
