@@ -36,6 +36,7 @@ class ProductTemplate(models.Model):
 
 class CustomerReview(models.Model):
     _name = "customer.review"
+    _description = 'Customer Review'
 
     product_id = fields.Many2one('product.template', required=True)
     customer_id = fields.Many2one('res.users', string='Review By', required=True)
