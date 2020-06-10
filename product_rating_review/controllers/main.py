@@ -25,6 +25,6 @@ class PortalChatter(PortalChatter):
             'date': date.today(),
             'email': user.email,
             'product_id': product.id,
-            'rating': rating,
+            'rating': rating / 2,
         })
         return msg_data

@@ -6,13 +6,12 @@ from odoo import api, fields, models
 class ProductTemplate(models.Model):
     _inherit = "product.template"
 
-    @api.multi
     def _count_avg_rating(self):
         #  count average product rating
         reviews = self.rating_get_stats()
-        self.review_count = "%.1f" % reviews.get('avg')
+        count_avg = reviews.get('avg')
+        self.review_count = count_avg / 2
 
-    @api.multi
     def action_view_reviews(self):
         self.ensure_one()
         action = self.env.ref('product_rating_review.action_product_reviewer_list')
@@ -21,7 +20,6 @@ class ProductTemplate(models.Model):
             'name': action.name,
             'help': action.help,
             'type': action.type,
-            'view_type': action.view_type,
             'view_mode': action.view_mode,
             'target': action.target,
             'res_model': action.res_model,

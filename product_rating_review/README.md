@@ -3,7 +3,7 @@ Manage Ratings & Reviews of products at Backend
 
 Version
 ---------
-	Odoo 12.0
+	Odoo 13.0
 
 Module Configration Guideline
 -----------------------------
