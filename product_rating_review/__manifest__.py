@@ -9,7 +9,7 @@ Features
 =============
 This specific module allows you manage ratings and reviews of website products at Odoo backend.
     """,
-    'category': 'Product',
+    'category': 'Website',
     'author': 'Aktiv Software',
     'depends': [
         'website_sale',
